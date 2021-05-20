@@ -16,7 +16,7 @@ public class Controller {
     private Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
 
     @FXML
-    private Button btnAdd, btnSub, btnMul, btnDiv, btnEqual, btnClr;
+    private Button btnAdd, btnSub, btnMul, btnDiv, btnEqual, btnClr, btnDel;
 
     @FXML
     private Button btnOpenP, btnCloseP;
@@ -34,6 +34,16 @@ public class Controller {
         }
         else if(text.equals("C")){
             txtOperation.setText("");
+        }
+        else if(text.equals("DEL")){
+            String operation = txtOperation.getText();
+            if(operation.length() > 1) {
+                String s = operation.substring(0, operation.length() - 1);
+                txtOperation.setText(s);
+            }
+            else if(operation.length() == 1){
+                txtOperation.setText("");
+            }
         }
         else{
             txtOperation.setText(txtOperation.getText() + text);
